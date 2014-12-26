@@ -10,8 +10,7 @@ enyo.kind({
 		mediagroup: "", loop: false, muted: "", controlsbar: false
 	},
 	events: {
-		onSoundEnded: "",
-		onSoundTimeupdate: ""
+		onSoundEnded: ""
 	},
 	
 	// Constructor
@@ -36,10 +35,7 @@ enyo.kind({
 			var audio = this;
 			enyo.dispatcher.listen(audio.hasNode(), "ended", function() { 
 				audio.doSoundEnded();
-			});			
-			enyo.dispatcher.listen(audio.hasNode(), "timeupdate", function(s) { 
-				audio.doSoundTimeupdate({timeStamp: s.timeStamp});
-			});			
+			});		
 		}
 	},
 	
@@ -149,13 +145,14 @@ enyo.kind({
 	kind: enyo.Control,
 	components: [
 		{ name: "sound", kind: "HTML5.Audio", preload: "auto", autobuffer: true, controlsbar: false, 
-		  onSoundEnded: "broadcastEnd", onSoundTimeupdate: "broadcastUpdate" }
+		  onSoundEnded: "broadcastEnd" }
 	],
 	
 	// Constructor
 	create: function() {
 		this.inherited(arguments);
 		this.format = null;
+		this.soundObject = null;
 	},
 
 	// First render, test sound format supported
@@ -169,10 +166,14 @@ enyo.kind({
 	},
 	
 	// Play a sound
-	play: function(sound, loop) {
+	play: function(soundObject, loop) {
+		if (this.soundObject) {
+			this.soundObject.abort();
+		}
+		this.soundObject = soundObject;
 		if (this.format == null)
 			return;
-		this.$.sound.setSrc(sound+this.format);
+		this.$.sound.setSrc(this.soundObject.sound+this.format);
 		this.$.sound.setLoop(loop === true);
 		this.timeStamp = new Date().getTime();
 		this.render();
@@ -188,10 +189,8 @@ enyo.kind({
 	
 	// End of sound detected, broadcast the signal
 	broadcastEnd: function() {
-		enyo.Signals.send("onEndOfSound", this.$.sound.src.substring(0,this.$.sound.src.length-4));
-	},
-	
-	broadcastUpdate: function(s, e) {
-		enyo.Signals.send("onSoundTimeupdate", e.timeStamp-this.timeStamp);	
+		if (this.soundObject && this.soundObject.endofsound)
+			this.soundObject.endofsound();
+		this.soundObject = null;
 	}
 });

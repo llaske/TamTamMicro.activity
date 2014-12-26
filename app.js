@@ -5,6 +5,8 @@ enyo.kind({
 	kind: enyo.Control,
 	published: {activity: null},
 	components: [
+		{name: "box", components: [
+		]}	
 	],
 	
 	// Constructor
@@ -15,6 +17,12 @@ enyo.kind({
 	
 	// Draw screen
 	init: function() {
-console.log("Hello Enyo World !");
+		var len = TamTam.database.length;
+		for(var i = 0 ; i < len ; i++ ) {
+			this.$.box.createComponent(
+				{ kind: "TamTam.Item", name: TamTam.database[i] },
+				{ owner: this }
+			).render();
+		}
 	}	
 });
