@@ -21,7 +21,6 @@ define(function (require) {
         document.getElementById("stop-button").addEventListener('click', function (event) {
 			sound.pause();
         });
-
     });
 
 });

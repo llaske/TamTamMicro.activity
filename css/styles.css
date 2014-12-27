@@ -3,11 +3,15 @@
 	background-color: white;
 }
 
+.maincontent {
+	background-color: #cecfce;
+}
+
 .item {
 	border-radius: 10%;
 	width: 120px;
 	max-width: 10%;	
-	background-color: darkgray;
+	background-color: #9c9a9c;
 	display: inline-block;
 	margin: .2% .2% .2% .2%;
 	z-index: 0;
@@ -22,5 +26,29 @@
 	text-align: center;
 }
 
-.box {
+.items {
+	background-color: #cecfce;
+}
+
+.collection {
+	border-radius: 10%;
+	width: 120px;
+	max-width: 10%;	
+	background-color: #212021;
+	display: inline-block;
+	margin: .2% .2% .2% .2%;
+	z-index: 0;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+	user-select: none;	
+}
+
+.collectionImage {
+	width: 100%;
+	text-align: center;
+}
+
+.collections {
+	background-color: #cecfce;
 }

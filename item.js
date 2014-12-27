@@ -5,8 +5,7 @@ enyo.kind({
 	published: { name: "" },
 	classes: "item",
 	components: [
-		{ name: "itemImage", classes: "itemImage", kind: "Image", ontap: "play" },
-		{ kind: "Signals", onSoundEnded: "endofsound" }
+		{ name: "itemImage", classes: "itemImage", kind: "Image", ontap: "play" }
 	],
 	
 	// Constructor
@@ -31,7 +30,8 @@ enyo.kind({
 	},
 	
 	endofsound: function() {
-		this.$.itemImage.setAttribute("src", "images/database/"+this.name+".png");
+		if (this.$.itemImage)
+			this.$.itemImage.setAttribute("src", "images/database/"+this.name+".png");
 	},
 
 	abort: function() {

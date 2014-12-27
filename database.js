@@ -12,30 +12,30 @@ TamTam.database = [
 	"trumpet","tuba","ukulele","violin","voix","water","zap"
 ];
 
-TamTam.categories = [
+TamTam.collections = [
 	{ name: "all", content: TamTam.database },
 	{ name: "animals", content: [ 
-		"bird", "cat", "chicken", "cow", "cricket", "dog", "duck", "duck2", "frogs", "horse", "ounk", "sheep"
+		"bird", "cat", "chiken", "cow", "cricket", "dog", "duck", "duck2", "frogs", "horse", "ounk", "sheep"
 	]},
 	{ name: "concret", content: [
 		"alarm", "bottle", "bubbles", "byke", "camera", "car", "carhorn", "clang", "cling", "crash", "diceinst",
 		"door",	"plane", "slap", "water", "zap"
 	]},
 	{ name: "keyboard", content: [
-		"clavinet", "harmonium", "harpischord", "piano", "rhodes"
+		"clavinet", "harmonium", "harpsichord", "piano", "rhodes"
 	]},
 	{ name: "people", content: [
 		"armbone", "babylaugh", "babyuhoh", "hey", "laugh", "ow", "voix"
 	]},
 	{ name: "percussions", content: [
-		"chimes", "clang2", "fingercymb", "gam", "kalimba", "marimba", "templebell", "triangle"
+		"chimes", "clang2", "fingercymbals", "gam", "kalimba", "marimba", "templebell", "triangle"
 	]},
 	{ name: "strings", content: [
 		"acguit", "banjo", "basse", "basse2", "cello", "guit", "guit2", "guitmute", "guitshort", "koto",
-		"mando", "sitar", "ukulele", "violon"
+		"mando", "sitar", "ukulele", "violin"
 	]},
 	{ name: "winds", content: [
-		"au_pipe", "clarinette", "didjeridu", "flugel", "flute", "foghorn", "harmonica", "ocarina",
+		"au_pipes", "clarinette", "didjeridu", "flugel", "flute", "foghorn", "harmonica", "ocarina",
 		"saxo", "saxsoprano", "shenai", "trumpet", "tuba"
 	]},
 ];
